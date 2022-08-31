@@ -1,0 +1,84 @@
+import java.util.Scanner;
+import com.timgesell.textstreamgui.*;
+
+/**
+ * Write a description of class ConversionApp here.
+ *
+ * @author Tim Gesell
+ * @version 08/23/2022
+ */
+public class ConversionApp2
+{
+    public static void main(String[] args)
+    {
+        TextStreamGUI gui = new TextStreamGUI("Conversion App");
+        Scanner keyboard = new Scanner(gui.in);
+        
+        SingleSelectOptionModule buttons = new SingleSelectOptionModule("Conversion","Celsius to Fahrenheit",
+        "Fahrenheit to Celsius","Feet to Meters","Meters to Feet","Ounces to Milliliters","Milliliters to Ounces");
+
+                // System.out.println("1. Celsius to Fahrenheit");
+                // System.out.println("2. Fahrenheit to Celsius");
+                // System.out.println("3. Feet to Meters");
+                // System.out.println("4. Meters to Feet");
+                // System.out.println("5. Ounces to Milliliters");
+                // System.out.println("6. Milliliters to Ounces");
+                //Add 2 more conversions, each both ways, to add choices 7, 8, 9, and 10.
+        gui.getButtonPanel().setButtonModule(buttons);
+        gui.showButtonPanel();
+        String selection = keyboard.nextLine();
+                //keyboard.nextLine();  //go past the endline and be ready for more input
+        
+        double input = 0.0;
+        if (selection.equals("Celsius to Fahrenheit"))
+        {
+            gui.out.println("Enter Celsius: ");
+            input = keyboard.nextDouble();
+            keyboard.nextLine();
+            double fahrenheit = input * (9.0 / 5.0) + 32;
+            gui.out.println(input + " degrees celsius is " + fahrenheit + " degrees fahrenheit");
+        }
+        if (selection.equals("Fahrenheit to Celsius"))
+        {
+            gui.out.println("Enter Fahrenheit: ");
+            input = keyboard.nextDouble();
+            keyboard.nextLine();
+            double celsius = input - 32.0 * (9.0/5.0);
+            gui.out.println(input + " degrees fahrenheit is" + celsius + " degrees celsius is");
+        }
+        if (selection.equals("Feet to Meters"))
+        {
+            gui.out.println("Enter Feet: ");
+            input = keyboard.nextDouble();
+            keyboard.nextLine();
+            double meters = input / 3.281;
+            gui.out.println(input + " feet is " + meters + " meters is");
+        }//add more if statements here.
+        if (selection.equals("Meters to Feet"))
+        {
+            gui.out.println("Enter Meters: ");
+            input = keyboard.nextDouble();
+            keyboard.nextLine();
+            double feet = input * 3.281;
+            gui.out.println(input + " meters is " + feet + " feet is");
+        }
+        if (selection.equals("Ounces to Milliliters"))
+        {
+            gui.out.println("Enter Ounces: ");
+            input = keyboard.nextDouble();
+            keyboard.nextLine();
+            double milliliters = input * 29.574;
+            gui.out.println(input + " ounces is " + input + " milliliters is");
+        }
+        if (selection.equals("Milliliters to Ounces"))
+        {
+            gui.out.println("Enter Milliliters: ");
+            input = keyboard.nextDouble();
+            keyboard.nextLine();
+            double ounces = input / 29570;
+            gui.out.println(input + " milliliters is " + input + " ounces is");
+            
+            }
+            
+        }
+   }
